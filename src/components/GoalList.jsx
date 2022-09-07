@@ -1,11 +1,11 @@
 import './GoalList.css'
 
-const GoalList = () => {
+const GoalList = ({ goals }) => {
   return (
     <ul className='goal-list'>
-      <li>Finish the Course</li>
-      <li>Learn about how each part of the MERN stack connect with eah other</li>
-      <li>How to build a REST API with NodeJS and Express</li>
+      {goals.map((goal) => (
+        <li key={goal.id}>{goal.text}</li>
+      ))}
     </ul>
   )
 }

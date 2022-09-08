@@ -10,10 +10,15 @@ function App() {
     {id: 3, text: 'How to build a REST API with NodeJS and Express'},
   ];
 
+  const addNewGoalHandler = (newGoal) => {
+    courseGoals.push(newGoal)
+    console.log(courseGoals)
+  }
+
   return (
     <div className='course-goals'>
       <h2>Course Goals</h2>
-      <NewGoal />
+      <NewGoal onAddGoal={addNewGoalHandler} />
       <GoalList goals={courseGoals} />
     </div>
   );

@@ -1,18 +1,19 @@
-import './App.css';
+import { useState } from 'react'
 import GoalList from './components/GoalList/GoalList';
 import NewGoal from './components/NewGoal/NewGoal';
+import './App.css';
 
 function App() {
   // global state
-  const courseGoals = [
+  const [courseGoals, setCourseGoals] = useState([
     {id: 1, text: 'Finish the course'},
     {id: 2, text: 'Learn about how each part of the MERN stack connect with each other'},
     {id: 3, text: 'How to build a REST API with NodeJS and Express'},
-  ];
+  ]);
+
 
   const addNewGoalHandler = (newGoal) => {
-    courseGoals.push(newGoal)
-    console.log(courseGoals)
+    setCourseGoals(courseGoals.concat(newGoal))
   }
 
   return (

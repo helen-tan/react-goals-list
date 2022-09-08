@@ -13,7 +13,16 @@ function App() {
 
 
   const addNewGoalHandler = (newGoal) => {
-    setCourseGoals(courseGoals.concat(newGoal))
+    // setCourseGoals(courseGoals.concat(newGoal))
+    // But React might defer updates if there are many state changes at the same time
+    // Better way to update state - a func which receives the lastest state
+    // Need this if the state update depends on the previous state's data
+    setCourseGoals((prevCourseGoals) => {
+      return prevCourseGoals.concat(newGoal)
+    })
+    // If the new state is computed using the previous state,
+    // you can pass a function to setState.
+    // The function will receive the previous value, and return an updated value
   }
 
   return (
